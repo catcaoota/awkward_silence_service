@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Silent Moments LLC</title>
+    <style>
+        body {
+            background: #F5F5F5;
+            font-family: Times;
+            padding: 30px;
+            color: #333;
+            line-height: 1.8;
+        }
+        .silence-meter {
+            width: 100%;
+            height: 30px;
+            background: #DDD;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 20px 0;
+            position: relative;
+        }
+        .silence-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #FF9999, #FF6666, #FF3333);
+            width: 0%;
+            transition: width 0.1s;
+            border-radius: 15px;
+        }
+        .awkward-counter {
+            text-align: center;
+            font-size: 48px;
+            color: #CC0000;
+            background: #FFF;
+            border: 3px solid #DDD;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .service-box {
+            background: #FFFAF0;
+            border: 1px solid #DEB887;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .testimonial {
+            background: #F0F8FF;
+            padding: 20px;
+            border-left: 5px solid #4169E1;
+            margin: 20px 0;
+            font-style: italic;
+        }
+        .button {
+            background: #DC143C;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .button:hover {
+            background: #B22222;
+        }
+        h1 {
+            text-align: center;
+            color: #8B4513;
+        }
+    </style>
+</head>
+<body>
+    <h1>🤐 Silent Moments LLC 🤐</h1>
+    <p style="text-align: center; font-size: 18px; color: #666;">
+        <em>"Making conversations uncomfortable since 2019"</em>
+    </p>
+    
+    <div class="awkward-counter">
+        <div id="silenceTimer">0</div>
+        <div style="font-size: 16px;">seconds of awkward silence</div>
+    </div>
+    
+    <div style="text-align: center;">
+        <button class="button" onclick="startSilence()">Start Awkward Silence</button>
+        <button class="button" onclick="stopSilence()">End Suffering</button>
+    </div>
+    
+    <div class="silence-meter">
+        <div class="silence-fill" id="silenceMeter"></div>
+    </div>
+    
+    <div class="service-box">
+        <h3>📞 Phone Call Silence Package</h3>
+        <p>Perfect for those "So..." moments. Our professional will create strategic pauses during your important calls.</p>
+        <strong>Price: $15 per uncomfortable minute</strong>
+    </div>
+    
+    <div class="service-box">
+        <h3>🥘 Dinner Party Silence Special</h3>
+        <p>We'll attend your dinner party and create perfectly timed awkward silences when conversation gets too comfortable.</p>
+        <strong>Price: $200 per event + travel expenses</strong>
+    </div>
+    
+    <div class="service-box">
+        <h3>💼 Meeting Silence Professional</h3>
+        <p>Corporate awkwardness specialist. We'll make your business meetings unforgettably uncomfortable.</p>
+        <strong>Price: $500 per meeting (includes PowerPoint staring)</strong>
+    </div>
+    
+    <div class="testimonial">
+        "I hired Silent Moments for my wedding reception. The 3-minute silence after the best man's speech was absolutely perfect. Everyone still talks about how uncomfortable it was!" 
+        <br><strong>- Sarah K., Satisfied Customer</strong>
+    </div>
+    
+    <p style="text-align: center; margin-top: 30px;">
+        <strong>Contact us:</strong> Just call and wait. We'll get back to you... eventually.
+    </p>
+    
+    <script>
+        let silenceInterval;
+        let seconds = 0;
+        
+        function startSilence() {
+            seconds = 0;
+            silenceInterval = setInterval(() => {
+                seconds++;
+                document.getElementById('silenceTimer').textContent = seconds;
+                document.getElementById('silenceMeter').style.width = Math.min(seconds * 2, 100) + '%';
+            }, 1000);
+        }
+        
+        function stopSilence() {
+            clearInterval(silenceInterval);
+            document.getElementById('silenceTimer').textContent = '0';
+            document.getElementById('silenceMeter').style.width = '0%';
+            seconds = 0;
+        }
+    </script>
+</body>
+</html> 
